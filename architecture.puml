@@ -1,0 +1,26 @@
+@startuml
+
+title MQTT Communication Diagram
+
+participant "Machine (Mac M2)" as mac2
+participant "MQTT Broker" as broker
+participant "Machine (Acer Laptop)" as acer
+participant "Machine (iPad)" as ipad
+
+mac2  --> broker :  publish to "q1 topic" with data
+mac2  --> broker :  also subscribe "q1 topic"
+mac2  <-- broker : message
+
+acer  --> broker :  subscribe "q1 topic"
+acer  <-- broker : message
+
+ipad  --> broker :  subscribe "q1 topic"
+ipad  <-- broker : message
+
+note right of mac2: src: re4388/mqtt-server-aedes
+note right of mac2: Expose TCP connection to public using ngrok `ngrok tcp <port>`
+note right of mac2: ngrok tcp <port> | tcp connection
+note right of mac2: So, tcp://0.tcp.jp.ngrok.io:<port> -> localhost:1888 (copy to mqttBox chrome ext)
+note right of mac2: use mqttBox(a chrome ext)
+note right of mac2: ipad use MyMQTT app
+@enduml

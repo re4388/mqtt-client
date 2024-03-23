@@ -1,9 +1,11 @@
 import mqtt from "mqtt";
 
 const local = `mqtt://localhost:1888`;
+
+// 對外的話，要用 ngrok
 const ngrokUrl = `mqtt://0.tcp.jp.ngrok.io:11136`;
 
-const client = mqtt.connect(ngrokUrl);
+const client = mqtt.connect(local);
 
 client.on("connect", function () {
   client.subscribe("q1", function (err) {
