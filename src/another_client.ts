@@ -1,10 +1,8 @@
 import mqtt from "mqtt";
-// eslint-disable-next-line no-console
 import express, {Express, Request, RequestHandler, Response} from 'express'
 import bodyParser from 'body-parser'
 import 'reflect-metadata'
 
-////////////////////////////////////////////////
 /////////////////// MQTT ///////////////////////
 ////////////////////////////////////////////////
 
@@ -22,7 +20,7 @@ client.on("connect", function () {
             console.error(`Failed to subscribe to topic "q1". Error: ${err.message}`);
             return;
         }
-        client.publish("q1", "Hello mqtt! client is send the first message after connected");
+        client.publish("q1", "Hello mqtt! ANOTHER CLIENT is send the first message after connected");
     });
 });
 
@@ -74,9 +72,10 @@ publishMsg.use(infoLog);
 publishMsg.post('/publishMsg', postMsg);
 
 
-app.listen(3111, async () => {
-  // debugger
-  console.log('Server is running at http://localhost:3111')
+const port = 3112
+app.listen(port, async () => {
+    // debugger
+    console.log(`Server is running at http://localhost:${port}`)
 })
 
 

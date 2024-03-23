@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src/ -e ts --exec ts-node ./src/index.ts"
+    "dev": "nodemon --watch src/ -e ts --exec ts-node ./src/index.ts",
+    "dev_another_client": "ts-node ./src/another_client.ts"
   },
   "keywords": [],
   "author": "",
