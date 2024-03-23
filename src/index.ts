@@ -56,13 +56,7 @@ function sendMsgToMqtt(msg: string) {
     client.publish("q1", msg);
 }
 
-// ###
-// POST http://localhost:3111/publishMsg
-//     content-type: application/json
-//
-// {
-//     "msg": "dsfdsfs"
-// }
+
 
 
 // middleware that is specific to this router
